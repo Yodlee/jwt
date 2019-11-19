@@ -1,0 +1,91 @@
+// Settings:
+:linkattrs:
+:idprefix:
+:idseparator: -
+:!toc-title:
+ifndef::env-github[:icons: font]
+ifdef::env-github,env-browser[]
+:toc: macro
+:toclevels: 1
+endif::[]
+ifdef::env-github[]
+:branch: master
+:outfilesuffix: .adoc
+:caution-caption: :fire:
+:important-caption: :exclamation:
+:note-caption: :paperclip:
+:tip-caption: :bulb:
+:warning-caption: :warning:
+endif::[]
+// URLs
+:url-yodlee-dashboard: https://developer.yodlee.com/api-dashboard
+:url-yodlee-api-docs: https://developer.yodlee.com/apidocs/index.php
+:url-jwt-rfc: https://tools.ietf.org/html/rfc7519
+:url-jwt-io: https://jwt.io/
+
+image:https://img.shields.io/badge/license-MIT-blue.svg[MIT License, link=#copyright-and-license]
+
+[discrete]
+= Working with JSON Web Tokens
+
+toc::[]
+
+== About JSON Web Tokens
+
+JSON Web Tokens (JWTs) are an {url-jwt-rfc}[open standard] for securely making claims.
+Identity is one example of a claim.
+Hence JWTs underpin one authentication approach used by {url-yodlee-api-docs}[Yodlee APIs].
+JWTs are a convenient alternative to SAML authentication used by large financial institutions.
+
+=== Where to find more info on JWTs
+
+The website {url-jwt-io}[jwt.io] has much useful information.
+It has a debugger, allowing you to paste in a token and your key.
+It will decode it, or issue an error, allowing you to confirm that your code works.
+The site also has many open source libraries for token processing.
+
+=== Yodlee Token Types
+
+Yodlee JWTs come in two varieties: app tokens, and user tokens.
+
+App tokens have the "issuer id" value from your {url-yodlee-dashboard}[developer dashboard].
+This identifies you, the app developer.
+You can think of this as your application key.
+
+User tokens have all the same information as an app token, along with one extra field, the subject.
+The subject represents the specific end user you are working with.
+
+In the developer portal, subjects are identified by 20-character unique strings that you (the developer) assign to keep track of your users.
+You can see a list of 5 predefined test users in your developer account dashboard.
+They have this general appearance: "sbMem5c758c82bb1d12".  
+
+Outside the developer portal, your app can use any scheme you find convenient to create and assign unique ids to your end users.
+They can be from 3 to 150 characters in length.
+
+== About the Applications
+
+This repositoriy includes sample programs showing how to work with JWTs in:
+
+- link:java[Java]
+- link:node[Node]
+- link:python[Python]
+- link:ruby[Ruby]
+- link:php[PHP]
+
+After you clone this repository, select the sub directory that references your language of choice.
+
+Each sub directory has language-specific installation and usage instructions in the related README file.
+
+Note that all the applications require arguments, and the formats are very similar.
+
+* The `-i` or `--issuer_id` argument is required and should reference your *Issuer Id* in the link:https://developer.yodlee.com/api-dashboard[API Dashboard].
+* The `-k` or `--key` argument is required and should reference the path to a copy of your private key in PEM format. 
+* the `-u` or `--username argument` should reference a valid *username* in your enviroment.
+
+By passing in a `--username` argument, you will be generating a *user token*, otherwise, you will be generating an *app token*. See link:#yodlee-token-types[Yodlee Token Types].
+
+== Copyright and License
+
+*Copyright 2019 © link:https://www.yodlee.com[Envestnet | Yodlee,window=_blank]*
+
+Free use of this software is granted under the terms of the MIT License. See *link:LICENSE[]* for details.
