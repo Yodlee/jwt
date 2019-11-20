@@ -28,5 +28,11 @@ $ mvn compile
 
 * Run
 ```bash
-mvn exec:java -Dexec.args="-k /path/to/your/private_key.pem -i f4d3dc80-885cbe1f-5f2b-4c74-0097-39dc59ae751c -u "J. D. Client""
+mvn exec:java -Dexec.args="-k /path/to/your/private_key.pem -i <issuer_id> [-u <username>]
+```
+
+* Example
+
+```bash
+mvn exec:java -Dexec.args="-k /home/secured/private_key.pem -i f4d3dc80-885cbe1f-5f2b-4c74-0097-39dc59ae751c -u "J. D. Client""
 ```
