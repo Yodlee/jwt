@@ -18,8 +18,10 @@ ifdef::env-github[]
 :warning-caption: :warning:
 endif::[]
 // URLs
+:url-yodlee-com: https://www.yodlee.com
 :url-yodlee-dashboard: https://developer.yodlee.com/api-dashboard
 :url-yodlee-api-docs: https://developer.yodlee.com/apidocs/index.php
+:url-yodlee-getting-started: https://developer.yodlee.com/docs/api/1.1/getting-started
 :url-jwt-rfc: https://tools.ietf.org/html/rfc7519
 :url-jwt-io: https://jwt.io/
 
@@ -39,28 +41,33 @@ JWTs are a convenient alternative to SAML authentication used by large financial
 
 === Where to find more info on JWTs
 
-The website {url-jwt-io}[jwt.io] has much useful information.
+The website {url-jwt-io}[jwt.io] has an array of useful information.
 It has a debugger, allowing you to paste in a token and your key.
 It will decode it, or issue an error, allowing you to confirm that your code works.
 The site also has many open source libraries for token processing.
 
 === Yodlee Token Types
 
-Yodlee JWTs come in two varieties: app tokens, and user tokens.
+Yodlee JWTs come in two varieties: app tokens, and user tokens.  You use one or the other depending on the specific Yodlee API.
 
 App tokens have the "issuer id" value from your {url-yodlee-dashboard}[developer dashboard].
 This identifies you, the app developer.
-You can think of this as your application key.
 
-User tokens have all the same information as an app token, along with one extra field, the subject.
-The subject represents the specific end user you are working with.
+App tokens are only needed for Yodlee APIs that provide general information.
 
-In the developer portal, subjects are identified by 20-character unique strings that you (the developer) assign to keep track of your users.
+User tokens have all the same information as an app token, along with one extra field, a user id.
+The id represents the specific end user you are working with (i.e. your client).
+
+User tokens are used for Yodlee APIs that return information regarding a particular end user.
+
+In the developer portal, users are identified by 20-character unique strings that you (the developer) assign to keep track of your users.
 You can see a list of 5 predefined test users in your developer account dashboard.
 They have this general appearance: "sbMem5c758c82bb1d12".  
 
 Outside the developer portal, your app can use any scheme you find convenient to create and assign unique ids to your end users.
 They can be from 3 to 150 characters in length.
+
+Read the documentation {url-yodlee-getting-started}[here] for more information on using JWTs with Yodlee APIs.
 
 == About the Applications
 
@@ -72,20 +79,41 @@ This repositoriy includes sample programs showing how to work with JWTs in:
 - link:ruby[Ruby]
 - link:php[PHP]
 
-After you clone this repository, select the sub directory that references your language of choice.
+After you clone this repository, select the subdirectory that references your language of choice.
 
-Each sub directory has language-specific installation and usage instructions in the related README file.
+Each subdirectory has language-specific installation and usage instructions in the related README file.
 
 Note that all the applications require arguments, and the formats are very similar.
 
-* The `-i` or `--issuer_id` argument is required and should reference your *Issuer Id* in the link:https://developer.yodlee.com/api-dashboard[API Dashboard].
+* The `-i` or `--issuer-id` argument is required and should reference your *Issuer Id* in the link:{url-yodlee-dashboard}[API Dashboard].
 * The `-k` or `--key` argument is required and should reference the path to a copy of your private key in PEM format. 
 * the `-u` or `--username argument` should reference a valid *username* in your enviroment.
 
 By passing in a `--username` argument, you will be generating a *user token*, otherwise, you will be generating an *app token*. See link:#yodlee-token-types[Yodlee Token Types].
 
+=== Token Generation Samples
+
+One set of samples included here show how to generate JWTs.  See the code under the `generate` directories.
+
+A typical invokation of one of the apps will look like
+
+```bash
+$ generate --key private.pem --issuer-id f4d3dc80-885cbe1f-5f2b-4c74-0097-39dc59ae751c
+```
+
+That version doesn't include a username, so that will produce an application token.
+
+Using short form options, we have
+
+```bash
+$ generate --key private.pem --issuer-id f4d3dc80-885cbe1f-5f2b-4c74-0097-39dc59ae751c -u "J. D. Client"
+```
+
+That will produce a user token.
+
+
 == Copyright and License
 
-*Copyright 2019 © link:https://www.yodlee.com[Envestnet | Yodlee,window=_blank]*
+*Copyright 2019 © link:{url-yodlee-com}[Envestnet | Yodlee,window=_blank]*
 
 Free use of this software is granted under the terms of the MIT License. See *link:LICENSE[]* for details.
