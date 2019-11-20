@@ -1,0 +1,32 @@
+:url-vscode: https://code.visualstudio.com/
+:url-maven: https://maven.apache.org/
+:url-yodlee-dashboard: https://developer.yodlee.com/api-dashboard
+:url-license-badge: https://img.shields.io/badge/license-MIT-blue.svg
+
+image:{url-license-badge}[MIT License, link=../README.adoc#copyright-and-license]
+
+See the main link:../README.adoc[README] for general information.
+
+== Generate (JWT generation sample)
+
+In {url-vscode}[Visual Studio Code]:
+
+* Open a project (e.g. `jwt/java/generate`)
+* Open the `launch.json` file under `.vscode`
+* Edit the `args` entry
+** Supply the path to your private key, stored in PEM format
+** Replace `<issuer_id>` with your issuer id, from the {url-yodlee-dashboard}[Yodlee dashboard]
+** For user tokens, replace `[-u <username>]` with `-u` and a username.
+
+Using {url-maven}[Maven]:
+
+* Compile
+
+```bash
+$ mvn compile
+```
+
+* Run
+```bash
+mvn exec:java -Dexec.args="-k /path/to/your/private_key.pem -i f4d3dc80-885cbe1f-5f2b-4c74-0097-39dc59ae751c -u "J. D. Client""
+```
