@@ -24,8 +24,9 @@ endif::[]
 :url-yodlee-getting-started: https://developer.yodlee.com/docs/api/1.1/getting-started
 :url-jwt-rfc: https://tools.ietf.org/html/rfc7519
 :url-jwt-io: https://jwt.io/
+:url-license-badge: https://img.shields.io/badge/license-MIT-blue.svg
 
-image:https://img.shields.io/badge/license-MIT-blue.svg[MIT License, link=#copyright-and-license]
+image:{url-license-badge}[MIT License, link=#copyright-and-license]
 
 [discrete]
 = Working with JSON Web Tokens
@@ -48,7 +49,8 @@ The site also has many open source libraries for token processing.
 
 === Yodlee Token Types
 
-Yodlee JWTs come in two varieties: app tokens, and user tokens.  You use one or the other depending on the specific Yodlee API.
+Yodlee JWTs come in two varieties: app tokens, and user tokens.
+You use one or the other depending on the specific Yodlee API.
 
 App tokens have the "issuer id" value from your {url-yodlee-dashboard}[developer dashboard].
 This identifies you, the app developer.
@@ -62,7 +64,7 @@ User tokens are used for Yodlee APIs that return information regarding a particu
 
 In the developer portal, users are identified by 20-character unique strings that you (the developer) assign to keep track of your users.
 You can see a list of 5 predefined test users in your developer account dashboard.
-They have this general appearance: "sbMem5c758c82bb1d12".  
+They have this general appearance: "sbMem5c758c82bb1d12".
 
 Outside the developer portal, your app can use any scheme you find convenient to create and assign unique ids to your end users.
 They can be from 3 to 150 characters in length.
@@ -83,17 +85,32 @@ After you clone this repository, select the subdirectory that references your la
 
 Each subdirectory has language-specific installation and usage instructions in the related README file.
 
-Note that all the applications require arguments, and the formats are very similar.
+=== Generate (JWT generation sample)
 
-* The `-i` or `--issuer-id` argument is required and should reference your *Issuer Id* in the link:{url-yodlee-dashboard}[API Dashboard].
-* The `-k` or `--key` argument is required and should reference the path to a copy of your private key in PEM format. 
-* the `-u` or `--username argument` should reference a valid *username* in your enviroment.
+One set of samples included here show how to generate JWTs.
+See the code under the `generate` directories.
 
-By passing in a `--username` argument, you will be generating a *user token*, otherwise, you will be generating an *app token*. See link:#yodlee-token-types[Yodlee Token Types].
 
-=== Token Generation Samples
+To generate a JWT, you need your issuer id and private key from your 
+{url-yodlee-dashboard}[developer account dashboard].
 
-One set of samples included here show how to generate JWTs.  See the code under the `generate` directories.
+Copy/paste your private key into a file.
+You'll need to supply the file path to the application.
+The private key is given to you in PEM format, which uses a limited
+set of ASCII characters, allowing easy copy/paste.
+
+Keep your private key secret and do not share with others.
+_Never put your private key into an app or on a mobile device._
+
+All the applications require arguments, and the formats are very similar.
+
+* The `-i` or `--issuer-id` argument is required, and should reference your *Issuer Id* in the link:{url-yodlee-dashboard}[Yodlee Dashboard].
+* The `-k` or `--key` argument is required, and should reference the path to a copy of your private key in PEM format.
+* the `-u` or `--username` argument is optional, and should reference a valid *username* in your environment.
+
+By passing in a `--username` argument, you will be generating a *user token*.
+Otherwise, you will be generating an *app token*
+See link:#yodlee-token-types[Yodlee Token Types].
 
 A typical invokation of one of the apps will look like
 
@@ -111,9 +128,9 @@ $ generate --key private.pem --issuer-id f4d3dc80-885cbe1f-5f2b-4c74-0097-39dc59
 
 That will produce a user token.
 
-
 == Copyright and License
 
 *Copyright 2019 © link:{url-yodlee-com}[Envestnet | Yodlee,window=_blank]*
 
-Free use of this software is granted under the terms of the MIT License. See *link:LICENSE[]* for details.
+Free use of this software is granted under the terms of the MIT License.
+See *link:LICENSE[]* for details.
