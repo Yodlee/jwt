@@ -11,7 +11,7 @@ See the main link:../README.adoc[README] for general information.
 
 In {url-vscode}[Visual Studio Code]:
 
-* Open a project (e.g. `jwt/java/generate`)
+* Open `jwt/java/generate`
 * Open the `launch.json` file under `.vscode`
 * Edit the `args` entry
 ** Supply the path to your private key, stored in PEM format
