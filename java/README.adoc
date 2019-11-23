@@ -9,7 +9,9 @@ See the main link:../README.adoc[README] for general information.
 
 == Generate (JWT generation sample)
 
-In {url-vscode}[Visual Studio Code]:
+Generates/mints a JWT and prints it to shell's standard output.
+
+=== In {url-vscode}[Visual Studio Code]:
 
 * Open `jwt/java/generate`
 * Open the `launch.json` file under `.vscode`
@@ -17,8 +19,9 @@ In {url-vscode}[Visual Studio Code]:
 ** Supply the path to your private key, stored in PEM format
 ** Replace `<issuer_id>` with your issuer id, from the {url-yodlee-dashboard}[Yodlee dashboard]
 ** For user tokens, replace `[-u <username>]` with `-u` and a username.
+* Run/debug using the `Launch Generate` configuration.
 
-Using {url-maven}[Maven]:
+=== Using {url-maven}[Maven]:
 
 * Compile
 
@@ -34,5 +37,5 @@ mvn exec:java -Dexec.args="-k /path/to/your/private_key.pem -i <issuer_id> [-u <
 * Example
 
 ```bash
-mvn exec:java -Dexec.args="-k /home/secured/private_key.pem -i f4d3dc80-885cbe1f-5f2b-4c74-0097-39dc59ae751c -u 'J. D. Client'"
+mvn exec:java -Dexec.args="-k /home/secured/private_key.pem -i f4d3dc80-885cbe1f-5f2b-4c74-0097-39dc59ae751c -u sbMem5c758c42bb1d12"
 ```
