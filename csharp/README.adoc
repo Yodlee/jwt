@@ -1,0 +1,93 @@
+:csharp: C#
+:url-vscode: https://code.visualstudio.com/
+:url-maven: https://maven.apache.org/
+:url-yodlee-dashboard: https://developer.yodlee.com/api-dashboard
+:url-license-badge: https://img.shields.io/badge/license-MIT-blue.svg
+
+image:{url-license-badge}[MIT License, link=../README.adoc#copyright-and-license]
+
+See the main link:../README.adoc[README] for general information.
+
+== Generate (JWT generation sample)
+
+Generates/mints a JWT and prints it to shell's standard output.
+
+=== In {url-vscode}[Visual Studio Code]: 
+
+* Install Extension link:https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp[C# for Visual Studio Code].
+* Open `jwt/csharp/generate`
+* Open the `launch.json` file under `.vscode`
+** Supply the path to your private key, stored in PEM format
+** Replace `<issuer_id>` with your issuer id, from the {url-yodlee-dashboard}[Yodlee dashboard]
+** For user tokens, replace `[-u <username>]` with `-u` and a username.
+* Run/debug using the `Launch Generate` configuration.
+
+=== Using the command line
+
+* Compile
+(.NET builds automatically when running, so this step is not needed.)
+```bash
+$ dotnet build
+```
+
+* Run
+```bash
+# generate an app token
+dotnet run -- --key=path/to/your/private_key.pem --issuer-id=<issuer-id>
+
+# generate a user token
+dotnet run -- --key=/path/to/your/private_key.pem --issuer-id=<issuer-id> --username=<username>
+```
+
+=== Publish for Windows OS
+* Debug build (/bin/Debug)
+```bash
+dotnet publish -c Debug -r win10-x64
+```
+* Release build (/bin/Release)
+```bash
+dotnet publish -c Release -r win10-x64
+```
+* Run
+```bash
+generate.exe --key=<private key path> --issuer-id=<your issuer id>
+```
+
+=== Publish for Mac OS
+* Debug build (/bin/Debug)
+```bash
+dotnet publish -c Debug -r osx.10.12-x64
+```
+* Release build (/bin/Release)
+```bash
+dotnet publish -c Release -r osx.10.12-x64
+```
+* Run:
+```bash
+bin/Release/netcoreapp3.0/osx.10.12-x64/generate --key=<private key path> --issuer-id=<your issuer id>
+```
+
+=== Publish for Ubuntu OS
+* Debug build (/bin/Debug)
+```bash
+dotnet publish -c Debug -r ubuntu.18.04-x64
+```
+* Release build (/bin/Release)
+```bash
+dotnet publish -c Release -r ubuntu.18.04-x64
+```
+* Run
+```bash
+dotnet jwt-csharp-core.dll --key=<private key path> --issuer-id=<your issuer id>
+```
+
+=== About generate
+* Uses .net core 3.0 (.net core 2.2 is an option)
+* Package Libraries used:
+** Portable.BouncyCastle 1.8.5.2
+** jose-jwt 2.4.0
+** System.CommandLine.Experimental 0.3.0-alpha.19405.1
+
+=== How to switch between .net core 3.0 and .net core 2.2
+* Edit jwt-csharp-netcore.csproj
+* Find "TargetFramework" and switch 3.0 to 2.2 or 2.2 to 3.0
