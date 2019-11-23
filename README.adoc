@@ -76,6 +76,7 @@ Read the documentation {url-yodlee-getting-started}[here] for more information o
 This repositoriy includes sample programs showing how to work with JWTs in:
 
 - link:java[Java]
+- link:csharp[C#]
 - link:node[Node]
 - link:python[Python]
 - link:ruby[Ruby]
