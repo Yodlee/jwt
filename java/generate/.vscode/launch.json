@@ -10,7 +10,7 @@
             "request": "launch",
             "mainClass": "com.yodlee.samples.jwt.Generate",
             "projectName": "java-jwt-generate",
-            "args": "-k /path/to/your/private_key.pem -i <issuer_id> [-u <username>]"
+            "args": "-k /path/to/your/private_key.pem -i issuer_id [-u username]"
         },
         {
             "type": "java",
