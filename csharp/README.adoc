@@ -78,7 +78,7 @@ dotnet publish -c Release -r ubuntu.18.04-x64
 ```
 * Run
 ```bash
-dotnet jwt-csharp-core.dll --key=<private key path> --issuer-id=<your issuer id>
+dotnet generate.dll --key=<private key path> --issuer-id=<your issuer id>
 ```
 
 === About generate
@@ -89,5 +89,5 @@ dotnet jwt-csharp-core.dll --key=<private key path> --issuer-id=<your issuer id>
 ** System.CommandLine.Experimental 0.3.0-alpha.19405.1
 
 === How to switch between .net core 3.0 and .net core 2.2
-* Edit jwt-csharp-netcore.csproj
+* Edit generate.csproj
 * Find "TargetFramework" and switch 3.0 to 2.2 or 2.2 to 3.0
