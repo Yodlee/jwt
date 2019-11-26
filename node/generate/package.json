@@ -1,0 +1,15 @@
+{
+  "name": "generate",
+  "version": "1.0.0",
+  "description": "Sample application to generate JSON Web Tokens for use with Yodlee APIs",
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": {
+    "generate": "node generate.js"
+  },
+  "author": "Yodlee",
+  "dependencies": {
+    "jsonwebtoken": "^8.5.1",
+    "yargs": "^14.0.0"
+  }
+}
