@@ -66,9 +66,9 @@ namespace jwt_csharp_netcore
         {
             RSAParameters rsaParams;
 
-            using (var tr = privateKey.OpenText())
+            using (var streamReader = privateKey.OpenText())
             {
-                var pemReader = new PemReader(tr);
+                var pemReader = new PemReader(streamReader);
 
                 RsaPrivateCrtKeyParameters privkey = null;
                 Object obj = pemReader.ReadObject();
