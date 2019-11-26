@@ -1,6 +1,5 @@
 :csharp: C#
 :url-vscode: https://code.visualstudio.com/
-:url-maven: https://maven.apache.org/
 :url-yodlee-dashboard: https://developer.yodlee.com/api-dashboard
 :url-license-badge: https://img.shields.io/badge/license-MIT-blue.svg
 
@@ -62,7 +61,7 @@ dotnet publish -c Debug -r osx.10.12-x64
 ```bash
 dotnet publish -c Release -r osx.10.12-x64
 ```
-* Run:
+* Run
 ```bash
 bin/Release/netcoreapp3.0/osx.10.12-x64/generate --key=<private key path> --issuer-id=<your issuer id>
 ```
