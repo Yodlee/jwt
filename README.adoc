@@ -91,7 +91,6 @@ Each subdirectory has language-specific installation and usage instructions in t
 One set of samples included here show how to generate JWTs.
 See the code under the `generate` directories.
 
-
 To generate a JWT, you need your issuer id and private key from your 
 {url-yodlee-dashboard}[developer account dashboard].
 
