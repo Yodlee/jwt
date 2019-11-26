@@ -1,0 +1,40 @@
+:url-vscode: https://code.visualstudio.com/
+:url-yodlee-dashboard: https://developer.yodlee.com/api-dashboard
+:url-license-badge: https://img.shields.io/badge/license-MIT-blue.svg
+:url-node-js: https://nodejs.org
+
+image:{url-license-badge}[MIT License, link=../README.adoc#copyright-and-license]
+
+See the main link:../README.adoc[README] for general information.
+
+== Generate (JWT generation sample)
+
+Generates/mints a JWT and prints it to shell's standard output.
+
+=== Installation and Usage
+In subdirectorty `jwt/node/generate`:
+
+* Install dependencies
+```bash
+npm install
+```
+
+* Run
+```bash
+# generate an app token
+node generate.js --key=path/to/private_key.pem --issuer-id=issuer-id
+
+# generate a user token
+node generate.js --key=path/to/private_key.pem --issuer-id=issuer-id --username=username
+```
+
+* Example
+```bash
+node generate.js -k /home/secured/private_key.pem -i f4d3dc80-885cbe1f-5f2b-4c74-0097-39dc59ae751c -u sbMem5c758c42bb1d12"
+```
+
+=== Requirements
+
+* {url-node-js}[Node.js] version >= 10
+
+(Use `node -v` to test your Node.js version.)
