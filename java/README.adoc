@@ -2,6 +2,9 @@
 :url-maven: https://maven.apache.org/
 :url-yodlee-dashboard: https://developer.yodlee.com/api-dashboard
 :url-license-badge: https://img.shields.io/badge/license-MIT-blue.svg
+:url-java-jdk: https://www.oracle.com/technetwork/java/javase/downloads/index.html
+:url-fusionauth-jwt: https://mvnrepository.com/artifact/io.fusionauth/fusionauth-jwt
+:url-jopt-simple: https://mvnrepository.com/artifact/net.sf.jopt-simple/jopt-simple
 
 image:{url-license-badge}[MIT License, link=../README.adoc#copyright-and-license]
 
@@ -39,3 +42,9 @@ mvn exec:java -Dexec.args="-k /path/to/your/private_key.pem -i <issuer_id> [-u <
 ```bash
 mvn exec:java -Dexec.args="-k /home/secured/private_key.pem -i f4d3dc80-885cbe1f-5f2b-4c74-0097-39dc59ae751c -u sbMem5c758c42bb1d12"
 ```
+
+== Requirements/Dependencies
+
+* {url-java-jdk}[Java JDK] version >= 8
+* {url-fusionauth-jwt}[FusionAuth JWT] version >= 3.1.3
+* {url-jopt-simple}[JOpt Simple] version >= 5.0.4
