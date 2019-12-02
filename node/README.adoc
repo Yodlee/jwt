@@ -2,6 +2,8 @@
 :url-yodlee-dashboard: https://developer.yodlee.com/api-dashboard
 :url-license-badge: https://img.shields.io/badge/license-MIT-blue.svg
 :url-node-js: https://nodejs.org
+:url-jsonwebtoken: https://www.npmjs.com/package/jsonwebtoken
+:url-yargs: https://www.npmjs.com/package/yargs
 
 image:{url-license-badge}[MIT License, link=../README.adoc#copyright-and-license]
 
@@ -30,11 +32,13 @@ node generate.js --key=path/to/private_key.pem --issuer-id=issuer-id --username=
 
 * Example
 ```bash
-node generate.js -k /home/secured/private_key.pem -i f4d3dc80-885cbe1f-5f2b-4c74-0097-39dc59ae751c -u sbMem5c758c42bb1d12"
+node generate.js -k /home/secured/private_key.pem -i f4d3dc80-885cbe1f-5f2b-4c74-0097-39dc59ae751c -u sbMem5c758c42bb1d12
 ```
 
 === Requirements
 
 * {url-node-js}[Node.js] version >= 10
+* {url-jsonwebtoken}[jsonwebtoken] version >= 8.5.1
+* {url-yargs}[Yargs] version >= 14.0.0
 
 (Use `node -v` to test your Node.js version.)
