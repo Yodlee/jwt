@@ -1,0 +1,41 @@
+:url-php-composer: https://getcomposer.org/
+:url-license-badge: https://img.shields.io/badge/license-MIT-blue.svg
+:url-php: https://www.php.net
+:url-firebase-php-jwt: https://github.com/firebase/php-jwt
+
+image:{url-license-badge}[MIT License, link=../README.adoc#copyright-and-license]
+
+See the main link:../README.adoc[README] for general information.
+
+== Generate (JWT generation sample)
+
+Generates/mints a JWT and prints it to shell's standard output.
+
+== Installation and Usage
+In subdirectorty `jwt/php/generate`:
+
+* Install dependencies using {url-php-composer}[Composer]
+```bash
+composer install
+```
+
+* Run
+```bash
+# generate an app token
+php generate.php -k path/to/private_key.pem -i issuer-id
+
+# generate an user token
+php generate.php -k path/to/private_key.pem -i issuer-id -u username
+```
+
+* Example
+```bash
+php generate.php -k /home/secured/private_key.pem -i f4d3dc80-885cbe1f-5f2b-4c74-0097-39dc59ae751c -u sbMem5c758c42bb1d12
+```
+
+== Requirements
+
+* {url-php}[PHP] version >= 7.1
+* {url-firebase-php-jwt}[Firebase PHP JWT] >= 5.0
+
+(Use `php -v` to test your PHP version.)

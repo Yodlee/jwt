@@ -1,0 +1,9 @@
+{
+    "name": "yodlee/jwt-php-generate",
+    "description": "Sample script to mint JSON Web Tokens",
+    "type": "project",
+    "require": {
+        "firebase/php-jwt": "^5.0"
+    },
+    "license": "MIT"
+}
