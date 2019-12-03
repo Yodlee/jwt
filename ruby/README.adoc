@@ -1,0 +1,42 @@
+:url-license-badge: https://img.shields.io/badge/license-MIT-blue.svg
+:url-ruby: https://www.ruby-lang.org/
+:url-bundler: https://bundler.io/
+:url-gem-jwt: https://rubygems.org/gems/jwt
+
+image:{url-license-badge}[MIT License, link=../README.adoc#copyright-and-license]
+
+See the main link:../README.adoc[README] for general information.
+
+== Generate (JWT generation sample)
+
+Generates/mints a JWT and prints it to shell's standard output.
+
+== Installation and Usage
+In subdirectorty `jwt/ruby/generate`:
+
+* Install dependencies using {url-bundler}[Bundler]
+```bash
+bundle install
+```
+
+* Run
+```bash
+# generate an app token
+ruby generate.rb -k path/to/private_key.pem -i issuer-id
+
+# generate an user token
+ruby generate.rb -k path/to/private_key.pem -i issuer-id -u username
+```
+
+* Example
+```bash
+ruby generate.rb -k /home/secured/private_key.pem -i f4d3dc80-885cbe1f-5f2b-4c74-0097-39dc59ae751c -u sbMem5c758c42bb1d12
+```
+
+== Requirements/Dependencies
+
+* {url-ruby}}[Ruby] version >= 2.6
+* {url-bundler}[Bundler] version >= 2.0
+* {url-gem-jwt}[JWT] version >= 2.2.1
+
+(Use `ruby -v` to test your Ruby version.)
