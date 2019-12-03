@@ -1,0 +1,7 @@
+PyJWT==1.7.1
+docopt==0.6.2
+cryptography==2.7
+cffi>=1.8
+pycparser>=2.06
+six>=1.4.1
+asn1crypto>=0.21.0
