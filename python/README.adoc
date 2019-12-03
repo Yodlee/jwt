@@ -1,0 +1,46 @@
+
+:url-license-badge: https://img.shields.io/badge/license-MIT-blue.svg
+:url-python: https://www.python.org/
+:url-python-pip: https://docs.python.org/3/installing/
+:url-python-pyjwt: https://pypi.org/project/PyJWT/
+
+image:{url-license-badge}[MIT License, link=../README.adoc#copyright-and-license]
+
+See the main link:../README.adoc[README] for general information.
+
+== Generate (JWT generation sample)
+
+Generates/mints a JWT and prints it to shell's standard output.
+
+== Installation and Usage
+(N.B. this assumes python 3 is installed as python3.)
+
+In subdirectorty `jwt/python/generate`:
+
+* Install dependencies using {url-python-pip}[pip]
+```bash
+pip3 install -r requirements.txt
+```
+
+* Run
+```bash
+# generate an app token
+python3 generate.py --key=path/to/private_key.pem --issuer-id=issuer-id
+
+# generate a user token
+python3 generate.py --key=path/to/private_key.pem --issuer-id=issuer-id --username=username
+```
+
+* Example
+```bash
+python3 generate.py -k /home/secured/private_key.pem -i f4d3dc80-885cbe1f-5f2b-4c74-0097-39dc59ae751c -u sbMem5c758c42bb1d12
+```
+
+== Requirements/Dependencies
+
+* {url-python}[Python 3] version 3
+* {url-python-pip}[pip] version 3
+* {url-python-pyjwt}[PyJWT] version >= 1.71
+* See also `requirements.txt` for subdependencies
+
+(Use `python -V` or `python3 -V` to test your Python version.)
