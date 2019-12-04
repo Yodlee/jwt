@@ -123,7 +123,7 @@ That version doesn't include a username, so that will produce an application tok
 Using short form options, we have
 
 ```bash
-$ generate --key private.pem --issuer-id f4d3dc80-885cbe1f-5f2b-4c74-0097-39dc59ae751c -u sbMem5c758c42bb1d12
+$ generate -k private.pem -i f4d3dc80-885cbe1f-5f2b-4c74-0097-39dc59ae751c -u sbMem5c758c42bb1d12
 ```
 
 That will produce a user token.
